@@ -1,5 +1,5 @@
 <html>
-
+<!-- https://developers.arcgis.com/documentation/mapping-apis-and-services/data-hosting/workflows/create-feature-service-for-app/ -->
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -26,17 +26,18 @@
     ], function (esriConfig,Map, MapView) {
 
       esriConfig.apiKey = "AAPK977c077787374cfa898402a363e298a9u71TxOXaujoUv7mPAzXEolVuhDM3JmzmW8ZANHfG4Bpq5NoE6P8lpsq_lpqnxH_E";
-      const map = new Map({
-        basemap: "arcgis-topographic" // Basemap layer
-      });
+      
+      const webmap = new WebMap({
+          portalItem: {
+                    id: "9fee04f7118f42d7ad19f720d93f842f" 
+                }
+            });
 
       const view = new MapView({
-        map: map,
-        center: [-118.805, 34.027],
-        zoom: 13, // scale: 72223.819286
-        container: "viewDiv",
-        constraints: {
-          snapToZoom: false
+        map: webmap,
+        container: "viewDiv"
+        zoom: 4
+        
         }
       });
 
