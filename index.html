@@ -81,15 +81,15 @@
             };
 
             // Create the layer and set the renderer and popup
-            const parcels = new FeatureLayer({
-                portalItem: {
-                    id: "9fee04f7118f42d7ad19f720d93f842f"
-                },
-                popupTemplate: popupParcels
-            });
+        const layer = new FeatureLayer({
+  portalItem: {
+    id: "9fee04f7118f42d7ad19f720d93f842f"
+  }
+});
 
-            // Add the layer
-            map.add(parcels);
+map.add(layer);
+
+    
         });
     </script>
 </body>
