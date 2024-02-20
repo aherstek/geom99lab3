@@ -54,14 +54,15 @@
     </div>
 
     <!-- JavaScript API Script -->
-    <script src="https://js.arcgis.com/4.23/"></script>
+    <script src="https://unpkg.com/esri-loader"></script>
     <script>
-        require([
+        // Load the ArcGIS API for JavaScript modules asynchronously
+        esriLoader.loadModules([
             "esri/config",
             "esri/Map",
             "esri/views/MapView",
             "esri/layers/FeatureLayer"
-        ], function(esriConfig, Map, MapView, FeatureLayer ) {
+        ]).then(([esriConfig, Map, MapView, FeatureLayer]) => {
             esriConfig.apiKey = "AAPK1821bf4645494d8cbcc6f63810c8ae77twI_0PubvKyzMAKSeKjWblZD1_iXDDXNx3Y5kRwO-yQyMgEf_XhulC9TcDt78n62"; 
 
             const map = new Map({
@@ -81,17 +82,16 @@
             };
 
             // Create the layer and set the renderer and popup
-        const layer = new FeatureLayer({
-  portalItem: {
-    id: "9fee04f7118f42d7ad19f720d93f842f"
-  }
-});
+            const parcels = new FeatureLayer({
+                portalItem: {
+                    id: "9fee04f7118f42d7ad19f720d93f842f"
+                },
+                popupTemplate: popupParcels
+            });
 
-map.add(layer);
-
-    
+            // Add the layer
+            map.add(parcels);
         });
     </script>
 </body>
 </html>
-
