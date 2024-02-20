@@ -77,6 +77,11 @@ https://developers.arcgis.com/javascript/latest/api-reference/esri-config.html#a
         container: "mapContainer",
         zoom: 4
       });
+      
+       const legend = new Legend({
+                view: view,
+      });
+      view.ui.add(legend, "bottom-left");	
 
     });
   </script>
