@@ -74,7 +74,7 @@ https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Legen
       esriConfig.apiKey = "AAPK977c077787374cfa898402a363e298a9u71TxOXaujoUv7mPAzXEolVuhDM3JmzmW8ZANHfG4Bpq5NoE6P8lpsq_lpqnxH_E";
 
       const map = new Map({
-        basemap: "arcgus/topographic"
+        basemap: "arcgis/topographic"
       });
       
       const view = new MapView({
@@ -99,7 +99,6 @@ https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Legen
       
       map.add(canada); // Add the FeatureLayer to the WebMap
 
-    });
       // JS for dropdown menu selection
       function handleDropdownChange() {
         const province = document.getElementById("provinceDropdown").value;
@@ -151,7 +150,6 @@ https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Legen
         <p><strong>Northwest Territories – Mountain Avens</strong></p>
         <p>These pretty plants, which are native to Canada’s western and Arctic regions, became the Northwest Territories’s floral emblem in 1957. While mountain avens are a member of the rose family, they only grow in high, rocky terrain and bloom from June to July.</p>
       </div>
-      </div>
       <div id="Nunavut-description" class="province-description" style="display: none;">
         <p><strong>Nunavut – Purple Saxifrage</strong></p>
         <p>When Nunavut split from the Northwest Territories in 1999, a vast list of new, important decisions needed to be made—including crowning a new floral emblem. The following year, the Legislative Assembly of Nunavut voted unanimously to adopt the lovely purple saxifrage as the territory’s official flower.</p>
@@ -201,4 +199,3 @@ https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Legen
   <div id="mapContainer"></div>
 </body>
 </html>
-
