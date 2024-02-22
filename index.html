@@ -74,11 +74,20 @@ https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Legen
 
       esriConfig.apiKey = "AAPK977c077787374cfa898402a363e298a9u71TxOXaujoUv7mPAzXEolVuhDM3JmzmW8ZANHfG4Bpq5NoE6P8lpsq_lpqnxH_E";
       
-      const webmap = new WebMap({
-          portalItem: {
-                  id: "d569bdcd88334ea1be796843db162624"
-              }
-      });
+      // Create a WebMap instance
+const webmap = new WebMap({
+    portalItem: {
+        id: "d569bdcd88334ea1be796843db162624"
+    }
+});
+
+// Add the canada FeatureLayer to the webmap
+const canada = new FeatureLayer({
+    url: "https://utility.arcgis.com/usrsvcs/servers/b71e74e060894419b0e2c882052d79a1/rest/services/geom99am/aherstekCanada/MapServer/0",
+    outFields: ["PRNAME"],
+    popupTemplate: provnames
+});
+webmap.add(canada); // Add the FeatureLayer to the WebMap
 
       const view = new MapView({
         map: webmap,
@@ -90,17 +99,7 @@ https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Legen
 // Define a pop-up for province name and Area in Meters
 const provnames = {
         "title": "Info Box",
-        "content": "Name:{PRNAME}"
-      }
-
-
-  const canada = new FeatureLayer({
-    url: "https://utility.arcgis.com/usrsvcs/servers/b71e74e060894419b0e2c882052d79a1/rest/services/geom99am/aherstekCanada/MapServer/0",
-    outFields: ["PRNAME"],
-        popupTemplate: provnames
-  });
-
-  map.add(canada);
+        "content": "Name:{PRNAME}
       
        const legend = new Legend({
                 view: view,
