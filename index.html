@@ -82,9 +82,24 @@ https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Legen
       const view = new MapView({
         map: webmap,
         container: "mapContainer",
-        center: [-106.3468, 56.1304],
-        zoom: 4
-      });
+       center: [-105.01748765849499,  61.065274509828264],   
+    zoom: 2
+  });
+
+// Define a pop-up for province name and Area in Meters
+const provnames = {
+        "title": "Info Box",
+        "content": "Name:{PRNAME}"
+      }
+
+
+  const canada = new FeatureLayer({
+    url: "https://utility.arcgis.com/usrsvcs/servers/b71e74e060894419b0e2c882052d79a1/rest/services/geom99am/aherstekCanada/MapServer/0",
+    outFields: ["PRNAME"],
+        popupTemplate: provnames
+  });
+
+  map.add(canada);
       
        const legend = new Legend({
                 view: view,
