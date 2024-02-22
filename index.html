@@ -58,10 +58,10 @@ https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Legen
       margin-top: 10px;
     }
   </style>
-
-  <link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/light/main.css">
-  <script src="https://js.arcgis.com/4.28/"></script>
-
+  
+<link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/light/main.css">
+<script src="https://js.arcgis.com/4.28/"></script>
+  
   <script>
     require([
      "esri/config",
@@ -73,11 +73,11 @@ https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Legen
       esriConfig.apiKey = "AAPK977c077787374cfa898402a363e298a9u71TxOXaujoUv7mPAzXEolVuhDM3JmzmW8ZANHfG4Bpq5NoE6P8lpsq_lpqnxH_E";
 
       const map = new Map({
-        basemap: "arcgis/topographic"
+        basemap: "arcgis-topographic"
       });
       
       const view = new MapView({
-        container: "mapContainer",
+        container: "viewDiv",
         map: map,
         center: [-105.01748765849499,  61.065274509828264],   
         zoom: 3
@@ -195,6 +195,6 @@ https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Legen
       </div>
     </div>
   </div>
-  <div id="mapContainer"></div>
+  <div id="viewDiv"></div>
 </body>
 </html>
