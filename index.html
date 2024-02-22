@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <!-- references: 
+https://developers.arcgis.com/javascript/latest/api-reference/esri-views-MapView.html
 https://developers.arcgis.com/documentation/mapping-apis-and-services/data-hosting/workflows/create-feature-service-for-app/
 https://developers.arcgis.com/javascript/latest/api-reference/esri-config.html#apiKey 
 https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Legend.html -->
@@ -78,9 +79,8 @@ https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Legen
       
       const view = new MapView({
         container: "viewDiv",
-        map: map,
-        center: [-105.01748765849499,  61.065274509828264],   
-        zoom: 3
+        map: map, 
+        zoom: 4
       });
 
       // Define a pop-up for province name and Area in Meters
