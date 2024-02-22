@@ -83,20 +83,13 @@ https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Legen
       const view = new MapView({
         container: "viewDiv",
         map: map, 
+        center: [-97.1384, 49.8951],
         zoom: 4
       });
 
-      // Define a pop-up for province name and Area in Meters
-      const provnames = {
-        "title": "Info Box",
-        "content": "Name:{PRNAME}"
-      };
-
-      // Add the canada FeatureLayer to the webmap
+      // adding my canada FeatureLayer 
       const canada = new FeatureLayer({
-        url: "https://utility.arcgis.com/usrsvcs/servers/9fee04f7118f42d7ad19f720d93f842f/rest/services/geom99am/aherstekCanada/MapServer/0",
-        outFields: ["PRNAME"],
-        popupTemplate: provnames
+        url: "https://utility.arcgis.com/usrsvcs/servers/9fee04f7118f42d7ad19f720d93f842f/rest/services/geom99am/aherstekCanada/MapServer/0"
       });
       
       map.add(canada); // Add the FeatureLayer to the WebMap
