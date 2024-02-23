@@ -95,6 +95,13 @@ https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Legen
       
       map.add(canada); // Add the FeatureLayer to the WebMap
 
+      // adding my canada FeatureLayer 
+      const climate = new FeatureLayer({
+        url: "https://utility.arcgis.com/usrsvcs/servers/9fee04f7118f42d7ad19f720d93f842f/rest/services/geom99am/aherstekCanada/MapServer/1"
+      }); 
+      
+      map.add(climate); // Add the FeatureLayer to the WebMap
+
       // JS for dropdown menu selection
       function handleDropdownChange() {
         const province = document.getElementById("provinceDropdown").value;
