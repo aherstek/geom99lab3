@@ -4,7 +4,6 @@ https://developers.arcgis.com/javascript/latest/api-reference/esri-views-MapView
 https://developers.arcgis.com/javascript/latest/tutorials/search-for-an-address/
 https://developers.arcgis.com/javascript/latest/api-reference/esri-config.html#apiKey 
 https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Legend.html
-https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-BasemapToggle.html
 https://developers.arcgis.com/javascript/latest/tutorials/reverse-geocode/ - i tried and failed, lol 
 ** i did use some inline css to bold a couple key words using <strong> -->
 <html>
@@ -72,11 +71,10 @@ https://developers.arcgis.com/javascript/latest/tutorials/reverse-geocode/ - i t
      "esri/config",
       "esri/Map",
       "esri/views/MapView",
-      "esri/widgets/BasemapToggle",
       "esri/widgets/Legend",
       "esri/layers/FeatureLayer",
       "esri/widgets/Search"
-    ], function (esriConfig, Map, MapView, BaseMapToggle, Legend, FeatureLayer, Search) {
+    ], function (esriConfig, Map, MapView, Legend, FeatureLayer, Search) {
 
       esriConfig.apiKey = "AAPK977c077787374cfa898402a363e298a9u71TxOXaujoUv7mPAzXEolVuhDM3JmzmW8ZANHfG4Bpq5NoE6P8lpsq_lpqnxH_E";
 
@@ -89,11 +87,6 @@ https://developers.arcgis.com/javascript/latest/tutorials/reverse-geocode/ - i t
         map: map, 
         center: [-93.860926, 63.010730],
         zoom: 3
-      });
-
-      let basemapToggle = new BasemapToggle({
-      view: view,
-      nextBasemap: "satellite"
       });
       
       // i had this working perfectly from following: https://developers.arcgis.com/javascript/latest/tutorials/reverse-geocode/
