@@ -71,9 +71,10 @@ https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Legen
      "esri/config",
       "esri/Map",
       "esri/views/MapView",
+      "esri/widgets/Legend",
       
       "esri/layers/FeatureLayer"
-    ], function (esriConfig, Map, MapView, FeatureLayer) {
+    ], function (esriConfig, Map, MapView, Legend, FeatureLayer) {
 
       esriConfig.apiKey = "AAPK977c077787374cfa898402a363e298a9u71TxOXaujoUv7mPAzXEolVuhDM3JmzmW8ZANHfG4Bpq5NoE6P8lpsq_lpqnxH_E";
 
@@ -94,6 +95,15 @@ https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Legen
       }); 
       
       map.add(canada); // Add the FeatureLayer to the WebMap
+
+
+      // Create a Legend widget instance
+      const legend = new Legend({
+      view: view, // Assuming 'view' is your MapView instance
+    });
+
+    // Add the legend to the view
+    view.ui.add(legend, "bottom-right"); // You can adjust the position as per your requirement
 
       // adding my canada FeatureLayer 
       const climate = new FeatureLayer({
