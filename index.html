@@ -89,7 +89,7 @@ https://developers.arcgis.com/javascript/latest/tutorials/reverse-geocode/ - i t
         zoom: 3
       });
       // i had this working perfectly from following: https://developers.arcgis.com/javascript/latest/tutorials/reverse-geocode/
-      // but as of feb 21 it's not working - see error.md for message i kept getting and couldn't find a work around :(
+      // but as of feb 21 it's not working ... i dont know what i messed up on :( - see error.md for message i kept getting and couldn't find a work around :(
       // const serviceUrl = "http://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer";
 
       //   view.on("click", function (evt) {
@@ -119,34 +119,34 @@ https://developers.arcgis.com/javascript/latest/tutorials/reverse-geocode/ - i t
       //     });
       //   }
       
-      // adding my canada FeatureLayer 
+      // creating my canada FeatureLayer 
       const canada = new FeatureLayer({
         url: "https://utility.arcgis.com/usrsvcs/servers/9fee04f7118f42d7ad19f720d93f842f/rest/services/geom99am/aherstekCanada/MapServer/0"
       }); 
       
-      map.add(canada); // Add the FeatureLayer to the WebMap
+      map.add(canada); // adding the FeatureLayer
 
 
-      // Create a Legend widget instance
+      // creating a legend widget instance
       const legend = new Legend({
-      view: view, // Assuming 'view' is your MapView instance
+      view: view, 
     });
 
-    // Add the legend to the view
-    view.ui.add(legend, "bottom-right"); // You can adjust the position as per your requirement
+    // adding the legend to the view
+    view.ui.add(legend, "bottom-right"); 
 
       // adding my canada FeatureLayer 
       const climate = new FeatureLayer({
         url: "https://utility.arcgis.com/usrsvcs/servers/9fee04f7118f42d7ad19f720d93f842f/rest/services/geom99am/aherstekCanada/MapServer/1"
       }); 
       
-      map.add(climate); // Add the FeatureLayer to the WebMap
-
-      const search = new Search({  //Add Search widget
+      map.add(climate); // adding the FeatureLayer 
+      
+      const search = new Search({  //adding a search widget so kids can look up their address to learn about their local climate zone
       view: view
       });
 
-    view.ui.add(search, "top-right"); //Add to the map
+    view.ui.add(search, "top-right"); //adding to the map
       // JS for dropdown menu selection
       function handleDropdownChange() {
         const province = document.getElementById("provinceDropdown").value;
