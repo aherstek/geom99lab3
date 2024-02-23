@@ -70,14 +70,14 @@ https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Legen
       "esri/Map",
       "esri/views/MapView",
       "esri/widgets/Legend",
-      "esri/widgets/Locator",
       "esri/layers/FeatureLayer"
-    ], function (esriConfig, Map, MapView, Legend, Locator, FeatureLayer) {
+      "esri/widgets/Search"
+    ], function (esriConfig, Map, MapView, Legend, FeatureLayer, Search) {
 
       esriConfig.apiKey = "AAPK977c077787374cfa898402a363e298a9u71TxOXaujoUv7mPAzXEolVuhDM3JmzmW8ZANHfG4Bpq5NoE6P8lpsq_lpqnxH_E";
 
       const map = new Map({
-        basemap: "arcgis-topographic"
+        basemap: "arcgis-navigation"
       });
       
       const view = new MapView({
@@ -86,35 +86,36 @@ https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Legen
         center: [-93.860926, 63.010730],
         zoom: 4
       });
+      // i had this working perfectly from following: https://developers.arcgis.com/javascript/latest/tutorials/reverse-geocode/
+      // but as of feb 21 it's not working - see error.md for message i kept getting and couldn't find a work around :(
+      // const serviceUrl = "http://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer";
 
-      const serviceUrl = "http://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer";
+      //   view.on("click", function (evt) {
+      //     const params = {
+      //       location: evt.mapPoint
+      //     };
 
-        view.on("click", function (evt) {
-          const params = {
-            location: evt.mapPoint
-          };
+      //     locator.locationToAddress(serviceUrl, params).then(
+      //       function (response) {
+      //         // Show the address found
+      //         const address = response.address;
+      //         showAddress(address, evt.mapPoint);
+      //       },
+      //       function (err) {
+      //         // Show no address found
+      //         showAddress("No address found.", evt.mapPoint);
+      //       }
+      //     );
 
-          locator.locationToAddress(serviceUrl, params).then(
-            function (response) {
-              // Show the address found
-              const address = response.address;
-              showAddress(address, evt.mapPoint);
-            },
-            function (err) {
-              // Show no address found
-              showAddress("No address found.", evt.mapPoint);
-            }
-          );
+      //   });
 
-        });
-
-        function showAddress(address, pt) {
-          view.openPopup({
-            title: +Math.round(pt.longitude * 100000) / 100000 + ", " + Math.round(pt.latitude * 100000) / 100000,
-            content: address,
-            location: pt
-          });
-        }
+      //   function showAddress(address, pt) {
+      //     view.openPopup({
+      //       title: +Math.round(pt.longitude * 100000) / 100000 + ", " + Math.round(pt.latitude * 100000) / 100000,
+      //       content: address,
+      //       location: pt
+      //     });
+      //   }
       
       // adding my canada FeatureLayer 
       const canada = new FeatureLayer({
@@ -139,6 +140,11 @@ https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Legen
       
       map.add(climate); // Add the FeatureLayer to the WebMap
 
+      const search = new Search({  //Add Search widget
+      view: view
+      });
+
+    view.ui.add(search, "top-right"); //Add to the map
       // JS for dropdown menu selection
       function handleDropdownChange() {
         const province = document.getElementById("provinceDropdown").value;
